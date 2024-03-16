@@ -10,7 +10,7 @@ public class FindSequence {
 		boolean found = false;
 search: for (int i=0; i< matrix.length; i++) {
 			for (int j=0; j < matrix[i].length; j++) {
-				if (search(0,matrix, i,j)){
+				if (search(0 ,matrix, i,j)){
 					found = true;
 					break search;
 				}
@@ -24,12 +24,6 @@ search: for (int i=0; i< matrix.length; i++) {
 
 	}
 
-	private static boolean search (int number, int[][]matrix, int row, int col) {
-		
-		
-		return false;
-
-	}
 
 	private static int[][] readMatrix() throws FileNotFoundException{
 		int[][] matrix = new int[10][10];
@@ -55,12 +49,29 @@ search: for (int i=0; i< matrix.length; i++) {
 		return matrix;
 	}
 	
-	private static void printMatrix(int[][] matrix) {
+	private static void printMatrix(int[][] matrix ) {
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = 0; j < matrix[i].length; j++) {
 					System.out.print(matrix[i][j]+" ");
 			}
 			System.out.println();
-		}	
+		}
+	}
+	private static boolean search(int n, int[][] matrix , int row , int col) {
+		if(row < 0 || row > 9 || col < 0 || col > 9)
+			return false;
+		boolean found = false ;
+		if(n ==9)
+			found = matrix[row][col] == 9;
+		else
+			found = matrix[row][col] == n && (search(n+1 , matrix , row-1 , col) ||
+					search(n+1 , matrix ,row+1 ,col) ||
+					search(n+1 , matrix ,row ,col+1) ||
+					search(n+1 , matrix ,row ,col-1)) ;
+
+		if (found)
+			matrix[row][col] = 9 - matrix[row][col];
+
+		return found;
 	}
 }
