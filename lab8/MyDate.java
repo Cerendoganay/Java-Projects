@@ -4,7 +4,7 @@ public class MyDate {
 	int year;
 
 	int[] maxDays = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-	
+
 	public MyDate(int day, int month, int year) {
 		this.day = day;
 		this.month = month-1; //0 represents January  11 represents December
@@ -18,11 +18,11 @@ public class MyDate {
 			incrementMonth();
 		}else if(month == 1 && newDay ==29 && !inLeapYear()){
 			day =1;
-			incrementMonth();	//will also handle the change in year		
+			incrementMonth();	//will also handle the change in year
 		}else{
 			day = newDay;
 		}
-		
+
 	}
 
 
@@ -34,35 +34,35 @@ public class MyDate {
 		}else{
 			day = newDay;
 		}
-		
+
 	}
-	
+
 	public void incrementDay(int i) {
 		while (i > 0){
 			incrementDay();
 			i--;
 		}
-		
+
 	}
-	
+
 	public void decrementDay(int i) {
 		while (i > 0){
 			decrementDay();
 			i--;
 		}
-		
+
 	}
 
 
 	public void incrementMonth(int i) {
 		int newMonth = (month + i) % 12;
 		int yearChange = 0;
-		
+
 		if (newMonth < 0) {
 			newMonth += 12;
 			yearChange = -1;
 		}
-		
+
 		yearChange += (month + i) / 12;
 		month = newMonth;
 		year += yearChange;
@@ -73,44 +73,44 @@ public class MyDate {
 			}
 		}
 	}
-	
-	
+
+
 	public void incrementMonth() {
 		incrementMonth(1);
-		
+
 	}
 
 	public void decrementMonth(int i) {
 		incrementMonth(-i);
-		
+
 	}
-	
+
 	public void decrementMonth() {
 		incrementMonth(-1);
-		
+
 	}
-	
+
 	public void incrementYear(int i) {
 		year+=i;
 		if (month ==1 && day ==29 && !inLeapYear()){
 			day = 28;
 		}
-		
+
 	}
 
 	public void incrementYear() {
 		incrementYear(1);
-		
+
 	}
 
 	public void decrementYear() {
-		incrementYear(-1);		
+		incrementYear(-1);
 	}
 
 
 	public void decrementYear(int i) {
 		incrementYear(-i);
-		
+
 	}
 
 
@@ -137,7 +137,7 @@ public class MyDate {
 				date.decrementDay();
 				diff++;
 			}
-			
+
 		}
 		return diff;
 	}
@@ -149,9 +149,9 @@ public class MyDate {
 	}
 
 	public String toString(){
-		return year + "-"+(month + 1 < 10 ? "0" : "") + (month + 1) + "-" +(day < 10 ? "0" : "") + day; 
+		return year + "-"+(month + 1 < 10 ? "0" : "") + (month + 1) + "-" +(day < 10 ? "0" : "") + day;
 	}
-	
+
 	public boolean inLeapYear(){
 		return year % 4 == 0 ? true : false;
 	}
