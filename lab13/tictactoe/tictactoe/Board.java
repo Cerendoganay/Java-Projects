@@ -1,4 +1,5 @@
 package tictactoe;
+import tictactoe.InvalidMoveException;
 
 public class Board {
 
@@ -6,7 +7,7 @@ public class Board {
 	int currentPlayer = 1;
 
 	int moveCount;
-	
+
 	public boolean isEnded() {
 		return moveCount == 9;
 	}
@@ -15,17 +16,26 @@ public class Board {
 		return currentPlayer;
 	}
 
-	public void move(int row, int col) {
+	public void move(int row, int col) throws InvalidMoveException {
+		if(row < 1 || row > 3){
+			throw new InvalidMoveException("row number should be between 1 and 3");
+		}
+		if (col < 1 || col > 3) {
+			throw new InvalidMoveException("column number should be between 1 and 3");
+		}
+		if (board[row-1][col-1] != ' ') {
+			throw new InvalidMoveException("Location is already occupied");
+		}
 		board[row - 1][col - 1] = currentPlayer == 1 ? 'X' : 'O';
 		currentPlayer = 3 - currentPlayer;
 		moveCount++;
 	}
-	
-	
+
+
 	public String toString() {
 		StringBuffer buf = new StringBuffer();
 		buf.append("    1   2   3\n").
-		append("   -----------\n");
+				append("   -----------\n");
 		for (int row = 0; row < 3; ++row) {
 			buf.append(row + 1 + " ");
 			for (int col = 0; col < 3; ++col) {
