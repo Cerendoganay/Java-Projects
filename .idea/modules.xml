@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/lab12ask/demo/demo.iml" filepath="$PROJECT_DIR$/lab12ask/demo/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab12ask/lab12.iml" filepath="$PROJECT_DIR$/lab12ask/lab12.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab9/lab9.iml" filepath="$PROJECT_DIR$/lab9/lab9.iml" />
+      <module fileurl="file://$PROJECT_DIR$/master.iml" filepath="$PROJECT_DIR$/master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab9/shapes2d/shapes2d.iml" filepath="$PROJECT_DIR$/lab9/shapes2d/shapes2d.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab12ask/stack/stack.iml" filepath="$PROJECT_DIR$/lab12ask/stack/stack.iml" />
+    </modules>
+  </component>
+</project>

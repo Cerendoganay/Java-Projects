@@ -14,7 +14,6 @@ public class FindMin {
             System.out.println("Min : " + min);
 
 
-
         }
 
     }
